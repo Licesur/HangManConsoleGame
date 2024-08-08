@@ -36,8 +36,8 @@ public class Game {
     public void turn() {
         while(this.isPlayingGame) {
             terminalFlush();
-            printHangMan(this.getPlayerLives());
             this.progressView();
+            printHangMan(this.getPlayerLives());
             String symbol = this.getSymbolFromUser(new Scanner(System.in)).toLowerCase();
             this.isContainsInWord(symbol);
             this.finishCheck();
@@ -104,8 +104,11 @@ public class Game {
                 System.out.println(Hangs.FIRSTHANG.getHang());
                 break;
             case 7:
+                System.out.println(Hangs.HARDSECOND.getHang());
                 break;
             case 8:
+                System.out.println(Hangs.HARDTHIRD.getHang());
+
                 break;
         }
 
@@ -187,6 +190,7 @@ public class Game {
         this.setSecretWordMask(this.getSecretWord().replaceAll("[А-яёЁ]", "*"));
         this.setPlayingGame(true);
         this.setPlayerLives(errorsNumber);
+        printHangMan(this.getPlayerLives());
     }
     public static String generateSecretWord(int worldLenth) {
         Random rand = new Random();

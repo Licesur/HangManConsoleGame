@@ -36,18 +36,18 @@ public class Menu {
     public static int getDifficultyLevelFromUser(Scanner scanner){
         System.out.println("Пожалуйста введите желаемый уровень сложности:" +
                 "\n1 - легкий\n2 - средний\n3 - тяжелый");
-        int difficultyLevel = scanner.nextInt();
-        while (!validateDifficultyLevel(difficultyLevel)){
+        String input = scanner.nextLine();
+        while (!validateDifficultyLevel(input)){
             System.out.println("Такой уровень сложности недоступен вам на данный момент!" +
                     "\nВыберите другой уровень сложности\n1 - легкий\n2 - средний\n3 - тяжелый");
-            difficultyLevel = scanner.nextInt();
+            input = scanner.nextLine();
         }
-
-        return difficultyLevel;
+        return Integer.parseInt(input);
     }
 
-    public static boolean validateDifficultyLevel(int difficultyLevel){
-        return difficultyLevel >= 1 && difficultyLevel <= 3;
+    public static boolean validateDifficultyLevel(String difficultyLevel){
+        return ((difficultyLevel.matches("\\d{1}"))
+                &&(Integer.parseInt(difficultyLevel) >= 1 && Integer.parseInt(difficultyLevel) <= 3));
     }
 
 }
