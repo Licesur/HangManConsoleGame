@@ -31,7 +31,7 @@ public class Menu {
     }
     public static Boolean commandValidation(String command){
         return command.matches("[НВ]");
-    };
+    }
 
     public static int getDifficultyLevelFromUser(Scanner scanner){
         System.out.println("Пожалуйста введите желаемый уровень сложности:" +
